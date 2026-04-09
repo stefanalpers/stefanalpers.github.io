@@ -20,7 +20,7 @@ The motivation of this concept was to facilitate the maintenance of test and pro
 Typically a Smallworld session is started via a desktop link, that calls a batch file that contains something like this
 
 ```
-&lt;PATH&gt;\runalias.exe -e &lt;PATH&gt;\environment.bat -a &lt;PATH&gt;\gis_aliases &lt;GIS-SESSION&gt;
+<PATH>\runalias.exe -e <PATH>\environment.bat -a <PATH>\gis_aliases <GIS-SESSION>
 ```
 
 The environment.bat in SW_PRODUCTS\core\config contains some mandatory  variables. Normally this file remains untouched and is called in an environment.bat in CUSTOMER_PRODUCTS\config. In this at least the variable SMALLWORLD_GIS must be set since all others are dependent of it.
@@ -38,7 +38,7 @@ set PATH=%SMALLWORLD_GIS%\bin\x86;%PATH%
 
 CUSTOMER_PRODUCTS\core\config\environment.bat:
 ```
-set SMALLWORLD_GIS=&lt;PFAD&gt;\core
+set SMALLWORLD_GIS=<PATH>\core
 call %SMALLWORLD_GIS%\config\environment.bat
 ...
 ```
@@ -57,7 +57,7 @@ Experience shows that the following requirements must be met in order to reduce 
 
 ## All in one and conventions
 
-#### File server
+### File server
 A Smallworld GIS environment contains these directories:
 
 - ADDON_PRODUCTS
@@ -86,7 +86,7 @@ Concerning other directories you may use
 Conventions III
 - Other directories start with "X_" so that they do not slip between the standard folders.
 
-#### Database server
+### Database server
 As with different environments on the file server there can exist datastores for different GIS versions or uses. These must also be quick and cleary to find and to distinguish, resulting in 
 
 Conventions IV
@@ -154,7 +154,7 @@ C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -ExecutionPolicy Unres
 
 In the environment-specific script start_gis_p.52106.ps1, the environment variables are set and a generic script is called that invokes all environment-specific scripts.
 
-###### Environment-Specific Script
+### Environment-Specific Script
 ```powershell
 $env:CUSTOMER_GIS_SERVER='xxx'
 $env:CUSTOMER_GIS_SHARE='GIS_P.52106'
@@ -174,7 +174,7 @@ $env:GIS_ALIASES_FILE='gis_aliases'
 
 The generic script start_session.52106.ps1 assembles environment variables, calls a file for pre-processes (e.g., connecting a share as a drive), starts the GIS, and after it terminates, calls a file for post-processes (e.g., disconnecting the share).
 
-###### Generic Script
+### Generic Script
 ```powershell
 $env:CUSTOMER_GIS_SERVER_SHARE="\\$env:CUSTOMER_GIS_SERVER\$env:CUSTOMER_GIS_SHARE"
 $env:CONFIG_DIR="$env:CUSTOMER_GIS_SERVER_SHARE\CUSTOMER_PRODUCTS\config"
@@ -205,24 +205,24 @@ For administrative purposes, GIS sessions can be started on the server (e.g., so
 
 As above, there are scripts in X_GIS-Sessions for specific purposes that call start_local_session.ps1.
 
-###### Environment-Specific Script for Emacs
+### Environment-Specific Script for Emacs
 ```powershell
 $env:GIS_ALIASES_FILE='gis_aliases'
 $env:GIS_SESSION='emacs'
-$env:SW_SESSION_TYPE='CUSTOMER_admin_open'
+$env:SW_SESSION_TYPE='some_session'
 
 & $PSScriptRoot\..\start_local_session.ps1
 ```
 
 The script for compilation doesn't need to be changed at all, since it doesn't use start_local_session.ps1, but calls environment_local_session.ps1 at the beginning.
 
-###### Environment-Specific Script for Compilation
+### Environment-Specific Script for Compilation
 ```powershell
-##region initialise environment
+#region initialise environment
 . $PSScriptRoot\..\environment_local_session.ps1
-##endregion initialise environment
+#endregion initialise environment
 
-##region variables
+#region variables
 $CustomerProductsDir = "$env:CUSTOMER_GIS_LOCAL_CLIENT_PATH\CUSTOMER_PRODUCTS"
 $AddonProductsDir = "$CustomerProductsDir\..\ADDON_PRODUCTS"
 $SWProductsDir = "$CustomerProductsDir\..\SW_PRODUCTS"
@@ -230,7 +230,7 @@ $LogDir = "$CustomerProductsDir\..\X_LOGS\CUSTOMER_COMPILE_PRODUCT"
 
 $CustomerProductsLibsLinkDirectory = "$CustomerProductsDir\libs"
 $CustomerProductsLibsTargetDirectory = "$CustomerProductsDir\libs_$env:TIMESTAMP"
-##endregion variables
+#endregion variables
 
 Write-Host "START removing files."
 ##region Delete JAR and SER in additional products
@@ -242,7 +242,7 @@ Remove-Item -Path $AddonProductsDir\sepm_product\x_translator_gw -Force -Recurse
 ...
 ```
 
-#### Epilogue
+### Epilogue
 
 Using this concept, extensive activities would only be necessary in one case: if the location where the scripts for the desktop shortcuts are stored is changed (for example, during a server migration). Then the Baramundi jobs would have to be changed and reassigned. However, if the new server is given the name of the old one, then no follow-up work is necessary.
 
