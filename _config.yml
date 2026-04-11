@@ -1,7 +1,18 @@
-title: "Stefan's thoughts about issues of all kinds"
-description: ""
-name: "Stefan Alpers"
 remote-theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "air"
+author:
+  name: "Stefan Alpers"
+  location: "Oberhausen, Germany"
+  email: "stefan.alpers@gmx.net"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-square-envelope"
+description: ""
+footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/stefanalpers"
+name: "Stefan Alpers"
 show_date: true
-search: true
+title: "Stefan's thoughts about issues of all kinds"
