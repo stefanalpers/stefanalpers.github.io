@@ -10,7 +10,9 @@ title: "Links"
 
   I felt very honored when he published an article written by me.
 - [CFIS](https://cfis.savagexi.com/)
-  Charlie Fields is another creative person who likes to share his knowledge with the world. A must read are the (Smallworld Technical Papers)[https://cfis.savagexi.com/smallworld-technical-papers/]. I read them a long time ago and if you do it, too, you'll maybe grab the power Smallworld GIS had and still has.
+  Charlie Fields is another creative person who likes to share his knowledge with the world. A must read are the [Smallworld Technical Papers](https://cfis.savagexi.com/smallworld-technical-papers/).
+  
+  I read them a long time ago and if you do it, too, you'll maybe grab the power Smallworld GIS had and still has.
 
 ## Communities
 - [sw-gis Smallworld Developers](https://groups.io/g/sw-gis)
