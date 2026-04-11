@@ -5,7 +5,7 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
 
-title: "Stefan's thoughts about issues of all kinds"
+title: "Solutions and thoughts concerning GIS and more"
 name: "Stefan Alpers"
 description: ""
 show_date: true
@@ -27,10 +27,13 @@ footer:
 category_archive:
   type: liquid
   path: /categories/
-  
+
 tag_archive:
   type: liquid
   path: /tags/
+
+include:
+  - _pages
 
 defaults:
   - scope:
@@ -42,3 +45,4 @@ defaults:
       read_time: true
       share: true
       related: true
+      show_date: true

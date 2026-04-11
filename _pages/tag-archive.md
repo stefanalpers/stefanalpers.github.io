@@ -1,5 +1,5 @@
 ---
 layout: tags
 permalink: /tags/
-title: "Articles are tagged by These"
+title: "Articles are tagged by these"
 ---
