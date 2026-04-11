@@ -1,5 +1,10 @@
 remote_theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "air"
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+  
 author:
   name: "Stefan Alpers"
   location: "Oberhausen, Germany"
