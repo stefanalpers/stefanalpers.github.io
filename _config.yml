@@ -1,4 +1,7 @@
 title: "Stefan's thoughts about issues of all kinds"
 description: ""
+name: "Stefan Alpers"
 remote-theme: mmistakes/minimal-mistakes
 minimal_mistakes_skin: "air"
+show_date: true
+search: true
