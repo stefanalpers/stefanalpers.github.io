@@ -1,5 +1,4 @@
 ---
-layout: single
 title: "Concept for a Smallworld GIS environment that is easy to deploy and maintain"
 date: 2026-04-09
 categories:

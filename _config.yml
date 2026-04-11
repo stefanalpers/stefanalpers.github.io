@@ -1,5 +1,5 @@
 remote_theme: mmistakes/minimal-mistakes
-minimal_mistakes_skin: "air"
+minimal_mistakes_skin: "dark"
 
 plugins:
   - jekyll-remote-theme
@@ -9,6 +9,7 @@ title: "Stefan's thoughts about issues of all kinds"
 name: "Stefan Alpers"
 description: ""
 show_date: true
+show_tags: true
 
 author:
   name: "Stefan Alpers"
@@ -22,3 +23,20 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/stefanalpers"
+
+tag_archive:
+  type: liquid
+  path: /tags/
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: # true
+      share: true
+      related: true
