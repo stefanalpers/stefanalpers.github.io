@@ -38,7 +38,7 @@ A structured folder design can be
 
 Now how do we achieve to load only the code needed? Let's try to create a simple sessions_loader. For example
 
-```
+```magik
 _pragma(classify_level=basic, topic={sessions})
 def_slotted_exemplar(:sessions_loader,
 	{
@@ -58,7 +58,7 @@ $
 
 As you can see the sessions_loader has the slot .session_directories which initially holds a rope that contains "base". Yes, you're right, it represents the folder \magik_sessions\source\base and yes, this folder is always loaded because it contains base definitions.
 
-```
+```magik
 _pragma(classify_level=basic, topic={sessions})
 _private _method sessions_loader.load_base_sessions
 
@@ -78,7 +78,7 @@ session_foobar:
 	
 During execution our sessions_loader has access to this variable and therefore can load the content of the directory with this method
 
-```
+```magik
 _pragma(classify_level=basic, topic={sessions})
 _private _method sessions_loader.load_sessions_specified_in_environment_variable
 	## The environment variable's name is SESSIONS_DIRECTORIES.
@@ -102,7 +102,7 @@ If you provide more than one directory separated by ';' all of these directories
 
 Both methods packed together yields the only necessary public method 
 
-```
+```magik
 _pragma(classify_level=basic, topic={sessions})
 _method sessions_loader.load_sessions
 	
@@ -122,7 +122,7 @@ load_sessions.magik
 
 And that file only needs this content:
 
-```
+```magik
 #% text_encoding = iso8859_1
 _package sw
 $

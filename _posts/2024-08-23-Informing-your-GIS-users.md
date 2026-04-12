@@ -28,7 +28,7 @@ Yes, I was frustrated.
 
 But I knew another way I should try: using Powershell. Because of [Mark's post](https://markhing.com/smallworld/using-powershell-with-smallworld-gis-magik/) the Magik side was not a great deal.
 
-```
+```magik
 inform_user <<
 	_proc@gw_inform_user(p_display_information?, p_quit_session?)
 		_if p_display_information?
