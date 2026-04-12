@@ -6,7 +6,7 @@ tags:
     - gis
     - smallworld
     - administration
-	- magik
+    - magik
 ---
 
 By now, anyone who works with or operates a Smallworld 5 environment should know that using precompiled JAR files is improving startup performance a lot. But since the starting point of a session is the module in CUSTOMER_PRODUCTS\config\magik_sessions some Magik-Code has to be loaded to define:
