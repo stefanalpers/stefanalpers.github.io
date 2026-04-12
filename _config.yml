@@ -14,14 +14,7 @@ show_tags: true
 author:
   name: "Stefan Alpers"
   location: "Oberhausen, Germany"
-  bio: "|
-  Solution oriented GIS architect
-  Adept at grasping and improving all types of processes 
-  Focused problem solver
-  Knowledge sharer
-  Translator
-  clear communication
-  curious and knowledge-driven"
+  bio: "Solution oriented GIS architect"
   email: "stefan.alpers@gmx.net"
   links:
     - label: "Email"

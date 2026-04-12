@@ -23,14 +23,14 @@ The motivation of this concept was to facilitate the maintenance of test and pro
 
 Typically a Smallworld session is started via a desktop link, that calls a batch file that contains something like this
 
-```
+```batch
 <PATH>\runalias.exe -e <PATH>\environment.bat -a <PATH>\gis_aliases <GIS-SESSION>
 ```
 
 The environment.bat in SW_PRODUCTS\core\config contains some mandatory  variables. Normally this file remains untouched and is called in an environment.bat in CUSTOMER_PRODUCTS\config. In this at least the variable SMALLWORLD_GIS must be set since all others are dependent of it.
 
 SW_PRODUCTS\core\config\environment.bat: 
-```
+```batch
 set SW_MESSAGE_DB_DIR=%SMALLWORLD_GIS%\..\smallworld_registry
 set SW_GIS_PATTERN_DIR=%SMALLWORLD_GIS%\data\xview_patterns
 set SW_FONT_CONFIG=%SMALLWORLD_GIS%\config\font
@@ -41,7 +41,7 @@ set PATH=%SMALLWORLD_GIS%\bin\x86;%PATH%
 ```
 
 CUSTOMER_PRODUCTS\core\config\environment.bat:
-```
+```batch
 set SMALLWORLD_GIS=<PATH>\core
 call %SMALLWORLD_GIS%\config\environment.bat
 ...

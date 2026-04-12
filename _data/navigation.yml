@@ -1,7 +1,9 @@
 main:
+  - title: "About"
+    url: /about/
+  - title: "Links"
+    url: /links/
   - title: "Tags"
     url: /tags/
   - title: "Categories"
     url: /categories/
-  - title: "Links"
-    url: /links/
