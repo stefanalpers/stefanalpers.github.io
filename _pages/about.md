@@ -1,3 +1,9 @@
+---
+layout: single
+permalink: /about/
+title: "About"
+---
+
 ## Softskills
 
 - Focused problem solver capable of making and supporting decisions.
