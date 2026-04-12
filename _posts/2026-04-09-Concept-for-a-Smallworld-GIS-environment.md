@@ -53,7 +53,7 @@ If &lt;PATH&gt; or &lt;GIS-SESSION&gt; contain absolute paths a server changes b
 
 Experience shows that the following requirements must be met in order to reduce maintenance and distribution costs.
 
-1. Everythnig the GIS needs must be inside one directory and there must exist unified and generally understandable conventions ofr the structure and naming of directories.
+1. Everything the GIS needs must be inside one directory and there must exist unified and generally understandable conventions ofr the structure and naming of directories.
 2. Changes must be easily comprehensible.
 3. If something must be changed, this should be necessary in as few places as possible. These places must be accessed at the least cost.
 4. Rolled out desktop links must start only executable files without passing parameters.

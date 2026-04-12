@@ -99,7 +99,6 @@ $form.Add_Shown({ $form.Activate() })
 [void]$form.ShowDialog()
 
 Write-Output "information read"
-```powershell
+```
 
 But now we have a useful and convenient solution for informing our users. Because it uses html we're able to include more features than displaying text if we want to.
-
