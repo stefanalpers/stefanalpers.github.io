@@ -8,11 +8,11 @@ tags:
     - powershell
     - concepts
 ---
-## Introduction into Smallworld's use of batch files
+## Introduction to Smallworld's use of batch files
 
-Smallworld is designed to use environment variables available from the operating system. Historically they are defined in BAT files, which are called when starting the GIS.
+Smallworld is designed to use environment variables available from the operating system. Historically they are defined in BAT files, which are invoked when starting the GIS.
 
-The environment.bat from the folder SW_PRODUCTS\core\config contains several environment variables that are generally used by Smallworld. Normally this file remains untouched and is called by the customer's environment.bat from the folder CUSTOMER_PRODUCTS\core\config.
+The environment.bat from the folder SW_PRODUCTS\core\config contains several environment variables that are generally used by Smallworld. Typicallythis file remains untouched and is called by the customer's environment.bat from the folder CUSTOMER_PRODUCTS\core\config.
 
 At least the variable SMALLWORLD_GIS must be set since many core environment variables depend on it:
 
@@ -26,7 +26,7 @@ set SW_ACP_PATH=%SMALLWORLD_GIS%\etc\x86
 set PATH=%SMALLWORLD_GIS%\bin\x86;%PATH%
 ```
 
-This is a tpyical call of the core's environment.bat in a customer's environment.bat
+This is a typical call of the core's environment.bat in a customer's environment.bat
 
 ```batch
 set SMALLWORLD_GIS=<PATH_TO_SW_PRODUCTS>\core
@@ -43,7 +43,7 @@ echo OFF
 
 ## The same in powershell
 
-Not long ago, I took the time to transform this to Powershell code and this is the result:
+Not long ago, I took the time to transform this into Powershell code and this is the result:
 
 ```powershell
 Start-Process -FilePath "$env:SMALLWORLD_X86\runalias.exe" -ArgumentList "-e $env:SW_GIS_ENVIRONMENT_FILE -a $env:CONFIG_DIR\gis_aliases $env:GIS_SESSION"
@@ -61,11 +61,11 @@ $env:<VARIABLE>
 $env:<VARIABLE>=<VALUE>
 ```
 
-The commandlet Start-Process starts an executable handed over with the parameter -FilePath and with the arguments passed by the paramater -ArgumentList.
+The commandlet Start-Process starts an executable handed over with the parameter -FilePath and with the arguments passed by the parameter -ArgumentList.
 
 ## Benefits of using powershell
 
-Maybe you ask yourself:"Fine, that looks <insert your impression here>! But why should I change my scripts?"
+Maybe you're asking yourself:"Fine, that looks <insert your impression here>! But why should I change my scripts?"
 
 At least in my reality the scripts aren't always as simple as the provided examples.
 
@@ -75,7 +75,7 @@ Maybe you want to
 - map a network drive
 - generate a timestamp
 
-Of course all of this can be done using DOS commands. But I never got deeper into them because implementing complex processes with DOS gave me headaches.
+Of course all of this can be done using batch commands. But I never got deeper into them because implementing complex processes with batch gave me headaches.
 
 I prefer Powershell because it is easier understandable by me. Your mileage may vary, but isn't
 
@@ -83,7 +83,7 @@ I prefer Powershell because it is easier understandable by me. Your mileage may 
 $env:TIMESTAMP=Get-Date -Format 'yyyyMMdd_HHmmss'
 ```
 
-easier then
+easier than
 
 ```batch
 for /F "usebackq tokens=1,2 delims==" %%i in (`%windir%\system32\wbem\wmic os get LocalDateTime /VALUE 2^>NUL`) do if '.%%i.'=='.LocalDateTime.' set X=%%j
@@ -92,7 +92,7 @@ set TIMESTAMP=%X:~2,6%_%X:~8,6%
 
 to get the current date and time in a nice format?
 
-The following DOS commands checks if a network drive contains a folder CUSTOMER_PRODUCTS and sets its drive letter as an environment variable.
+The following batch commands checks if a network drive contains a folder CUSTOMER_PRODUCTS and sets its drive letter as an environment variable.
 
 ```batch
 for %%a in (z y x w v u t s r q p o n m l k j i h g f e d c) do if exist %%a:\CUSTOMER_PRODUCTS (
@@ -115,7 +115,7 @@ ForEach-Object {
 }
 ```
 
-Ok, mapping a network drive looks easier using DOS:
+Ok, mapping a network drive looks easier using batch:
 
 ```batch
 FOR /f "tokens=2" %%a IN ('NET USE * "\\%GIS_SHARE%" ^|find "connected" ') do set "GIS=%%a"
@@ -137,9 +137,9 @@ If ($env:GIS -eq $false) {
 }
 ```
 
-But with Powershell you have full and easier access to other features you might need prior or after starting the GIS. Or even after the GIS process is finished!
+But with Powershell you have full and easier access to other features you might need prior or after starting the GIS. Or even after the GIS process is finished.
 
-If you use Start-Process with the parameter -Wait any code afterwards is only executed when the GIS process is finished. I leave to your imaginations why you might need this. Or have a look at this example.
+If you use Start-Process with the parameter -Wait any code afterwards is only executed when the GIS process is finished. I leave to your imagination why you might need this. Or have a look at this example.
 
 ```powershell
 $env:GIS_SERVER='production_server'

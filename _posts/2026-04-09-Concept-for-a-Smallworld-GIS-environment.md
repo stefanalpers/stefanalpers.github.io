@@ -11,13 +11,13 @@ tags:
 
 ## Preface
 
-A Smallworld GIS environment consists of at least a file server for the Smallworld products, a supported Java runtime and a directory for for the database context, and a database server. A crucial part is the file environment.bat. It contains environment variables for the path to the licence datastore message.ds or to executables like gis.executables
+A Smallworld GIS environment consists of at least a file server for the Smallworld products, a supported Java runtime and a directory for the database context, and a database server. A crucial part is the file environment.bat. It contains environment variables for the path to the licence datastore message.ds or to executables like gis.exe.
 
-In the lifecycle of a Smallworld version there are specific dates for creating a productive and test environment. Plus environments for development or projects.
+In the lifecycle of a Smallworld version there are defined milestones for creating a productive and test environment. Plus environments for development or projects.
 
-If the environment.bat contains absolute paths oder server names, in case of a copy to another location they must be controlled and changed manually. This is prone to errors and takes up unnecessary time. Follow-up operations like changing existing desktop links or moving of databases have to be considered, too.
+If the environment.bat contains absolute paths or server names, in case of a copy to another location they must be controlled and changed manually. This is prone to errors and takes up unnecessary time. Follow-up operations like changing existing desktop links or moving of databases have to be considered, too.
 
-The motivation of this concept was to facilitate the maintenance of test and productive environment and to create an easy way to deploy a raising number of project and development environments.
+The motivation of this concept was to facilitate the maintenance of test and productive environment and to create an easy way to deploy a growing number of project and development environments.
 
 ## How does the Smallworld GIS work?
 
@@ -47,13 +47,13 @@ call %SMALLWORLD_GIS%\config\environment.bat
 ...
 ```
 
-If &lt;PATH&gt; or &lt;GIS-SESSION&gt; contain absolute paths a server changes becomes a nightmare. If database path isn't controlled by an environment variable, each connected must be checked and changed in the dataset controller.
+If `<PATH&gt; or &lt;GIS-SESSION>` contain absolute paths a server changes becomes a nightmare. If database path isn't controlled by an environment variable, each connected must be checked and changed in the dataset controller.
 
 ## Requirements
 
 Experience shows that the following requirements must be met in order to reduce maintenance and distribution costs.
 
-1. Everything the GIS needs must be inside one directory and there must exist unified and generally understandable conventions ofr the structure and naming of directories.
+1. Everything the GIS needs must be inside one directory and there must exist unified and generally understandable conventions for the structure and naming of directories.
 2. Changes must be easily comprehensible.
 3. If something must be changed, this should be necessary in as few places as possible. These places must be accessed at the least cost.
 4. Rolled out desktop links must start only executable files without passing parameters.
@@ -68,16 +68,16 @@ A Smallworld GIS environment contains these directories:
 - CUSTOMER_PRODUCTS
 - CUSTOMISATION_PRODUCTS
 - SW_PRODUCTS
-- SW_DB_CONteXT_DIR
+- SW_DB_CONTEXT_DIR
 
 They must be deployed in a directory on a partition of a server.
 
-If there must be more than one environment on a server, they must be quick and cleary to find and to distinguish. This results in
+If there must be more than one environment on a server, they must be quick and clearly distinguishable and to distinguish. This results in
 
 Conventions I
-- GIS enviroments are always on the same partition on all file servers.
-- Productive enviroments are called GIS_P.&lt;VERSION&gt;, e. g. GIS_P.52106.
-- Test enviroments are called GIS_T.&lt;VERSION&gt;, e. g. GIS_T.52106.
+- GIS environments are always on the same partition on all file servers.
+- Productive environments are called GIS_P.`<VERSION>`, e. g. GIS_P.52106.
+- Test environments are called GIS_T.`<VERSION>`, e. g. GIS_T.52106.
 - Use similar conventions for project and development environments.
 
 The need for providing another JRE for different GIS verions result in
@@ -91,11 +91,11 @@ Conventions III
 - Other directories start with "X_" so that they do not slip between the standard folders.
 
 ### Database server
-As with different environments on the file server there can exist datastores for different GIS versions or uses. These must also be quick and cleary to find and to distinguish, resulting in 
+As with different environments on the file server there can exist datastores for different GIS versions or uses. These must also be quick and clearly distinguishable and to distinguish, resulting in 
 
 Conventions IV
 - Datastores are always in the directory GIS_DB on the same partition on all database servers.
-- Inside this directory are directories for the different GIS environments. They are named like the corresponding GIS environment (GIS environment GIS_P.&lt;VERSION&gt; → Datastore GIS_P.&lt;VERSION&gt;)
+- Inside this directory are directories for the different GIS environments. They are named like the corresponding GIS environment (GIS environment GIS_P.`<VERSION>` → Datastore GIS_P.`<VERSION>`)
 
 ## Traceability of changes
 All GIS environment are tracked by git. All changes must have a comment that is as meaningful as possible and must contain a ticket number if available.
@@ -105,13 +105,13 @@ Branches follow
 Conventions V
 - Branch names are similar to the GIS environment they contain.
 
-In general, this direction applies to the transport of changes through the branches: &lt;DEVELOPMENT/PROJECT&gt; → GIS_T → GIS_P. Only in an emergency may this direction be reversed, and then changes may only be adopted using cherry pick. Since there are usually several changes in GIS_T that cannot be transferred to GIS_P at the same time, a cherry pick of the desired changes is always necessary here.
+In general, this direction applies to the transport of changes through the branches: `<DEVELOPMENT/PROJECT>` → GIS_T → GIS_P. Only in an emergency may this direction be reversed, and then changes may only be adopted using cherry pick. Since there are usually several changes in GIS_T that cannot be transferred to GIS_P at the same time, a cherry pick of the desired changes is always necessary here.
 
 ## Consistent and Meaningful Use of Environment Variables
 
 The frequently mentioned control file environment.bat may only use environment variables that are based on relative specifications, and they must build upon each other. Only then will its potential be fully utilized and maintenance simplified.
 
-There should be as few basic environment variables as possible, and these must be set externally when starting the environment. This encapsulates the GIS environment and makes it easy to transfer to other servers.
+There should be as few basic environment variables as possible, and these must be set externally before starting the environment. This encapsulates the GIS environment and makes it easy to transfer to other servers.
 
 The more changes that need to be made, the higher the probability that something will be forgotten or done incorrectly. The points where changes are made should also be as easily accessible as possible, and not nested too deeply in directories.
 
@@ -122,17 +122,17 @@ The distribution of shortcuts must be controlled and centralized; otherwise, use
 The shortcuts use UNC paths to call scripts that are located in a specific location and in which the environment variables for the GIS environments are set. The scripts should be built as generically as possible so that they are reusable and easy to maintain.
 
 Conventions VI
-- The startup scripts are named start_gis_&lt;p or t&gt;.&lt;version number&gt;.ps1.
-- The shortcuts are named "GIS &lt;version number&gt; &lt;P or T&gt;"
+- The startup scripts are named start_gis_`<p or t&gt;.&lt;version number>`.ps1.
+- The shortcuts are named "GIS `<version number&gt; &lt;P or T>`"
 - The icons for at least the P and T environments should differ in color and also have different tooltips.
 
 ## Implementation in Practice Using the Example of a Customer
 
 All conventions from this concept apply to the GIS environments.
 
-The desktop shortcuts are distributed with Baramundi jobs. No files are copied from A to B; instead, the shortcuts are created with PowerShell commands. Only for project or development environments are there files, which are also provided at a central location.
+The desktop shortcuts are distributed with Baramundi jobs. No files are copied directly; instead, the shortcuts are created with PowerShell commands. Only for project or development environments are there files, which are also provided at a central location.
 
-The scripts called by the shortcuts are located on a server in the GIS-Startskripte directory. Active Directory groups have "Read, Execute" access to this directory so that the scripts can be executed. The directory must also be shared on the network. To prevent unnecessary directories from appearing in users' Windows Explorer, the share name is "GIS-Startskripte$".
+The scripts called by the shortcuts are located on a server in the GIS-Startskripte directory. Active Directory groups have "Read, Execute" access to this directory so that the scripts can be executed. The directory must also be shared on the network. To prevent unnecessary directories from appearing in users' Windows Explorer, the share name is "GIS-Startskripte$" (If a share's name ends with "$" it isn't visible in Windows Explorer).
 
 For using the GIS, these environment variables must be defined at startup:
 - CUSTOMER_GIS_SERVER → File server
@@ -243,13 +243,15 @@ Remove-Item -Path $AddonProductsDir\its_product\-_gw -Force -Recurse -Include -.
 Remove-Item -Path $AddonProductsDir\ub_product\ub_- -Force -Recurse -Include -.jar, product.ser -ErrorAction SilentlyContinue
 Remove-Item -Path $AddonProductsDir\sepm_product\x_translator_gw -Force -Recurse -Include -.jar, product.ser -ErrorAction SilentlyContinue
 #endregion Delete JAR in additional products
-...
+... # further steps omitted for brevity
 ```
 
 ### Epilogue
 
 Using this concept, extensive activities would only be necessary in one case: if the location where the scripts for the desktop shortcuts are stored is changed (for example, during a server migration). Then the Baramundi jobs would have to be changed and reassigned. However, if the new server is given the name of the old one, then no follow-up work is necessary.
 
-The concept works generally and must or can be adapted to the customer's circumstances. At one customer, for example, part of the Smallworld environment is currently installed on the clients (see CUSTOMER_GIS_LOCAL_CLIENT_PATH). This doesn't have to be the case with other customers. And this will also change in the near future, as the complete GIS environment except for the databases will then be located on the clients. Then the scripts will also have to be adapted to the new circumstances. The advantage is that there is already a generic script for pre-processes. This will then be used to check the currency of the client installation and update it when changes occur.
+The concept works generally and must or can be adapted to the customer's circumstances. At one customer, for example, part of the Smallworld environment is currently installed on the clients (see CUSTOMER_GIS_LOCAL_CLIENT_PATH). This doesn't have to be the case with other customers.
+
+And this will also change in the near future, as the complete GIS environment except for the databases will then be located on the clients. Then the scripts will also have to be adapted to the new circumstances. The advantage is that there is already a generic script for pre-processes. This will then be used to check if the client installation is current and updates it when changes occur.
 
 I am always amazed at how simple it has become.

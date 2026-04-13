@@ -8,21 +8,21 @@ tags:
     - powershell
 ---
 
-Were you ever in need to inform all GIS users? How did you do this?
+Have you ever needed to inform all GIS users? How did you do this?
 
-Did you sent an email? To whom?
+Did you send an email, and if so, to whom?
 
 To all users you know? Do you know all users?
 
-To certain key users with the request to forward the information? Did they do that? Were they at work or did they had a deputy?
+To certain key users with the request to forward the information? Did they do that? Were they at work or did they have a deputy?
 
-Because this way is prone to fail one of my customers had a solution that prompted the users a Magik frame with the necessary information. But without going into detail the solution was quite bad to use and to maintain. 
+Because this way is prone to failure one of my customers had a solution that prompted the users a Magik frame with the necessary information. But without going into detail the solution was quite bad to use and to maintain. 
 
-After the customer went to 5.x the solution revealed another drawback. The information was displayed after the image/session had started. The bad thing in my eyes was the fact that sometimes the image/session automatically quitted after the information because hard datamodel changes or else were made. Imagine a user who waited the standard 5.x start time for his session to be ready only to be informed that it will quit now because of this or that.
+After the customer went to 5.x the solution revealed another drawback. The information was displayed after the image/session had started. The bad thing in my eyes was the fact that sometimes the image/session automatically quitted after the information because hard datamodel changes or similar were made. Imagine a user who waited the standard 5.x start time for his session to be ready only to be informed that it will quit now because of this or that.
 
-I thought I was clever and directed all links for starting a session to a single point of contact batch file. Inside the file I could control the information display and suppress the session start if necessary. I simply wrote an html file and used "start %lt;PATH TO HTML%gt;" to open it in a web browser. What I didn't knew until then: the Citrix workers didn't knew how to open it. And of course there were users who used a link that I couldn't redirect anymore to my single point of contact.
+I thought I was clever and directed all links for starting a session to a central of contact batch file. Inside the file I could control the information display and suppress the session start if necessary. I simply wrote an html file and used "start &lt;PATH TO HTML&gt;" to open it in a web browser. What I didn't know until then: the Citrix workers didn't knew how to open it. And of course there were users who used a link that I couldn't redirect anymore to my central of contact.
 
-So I returned to a Magik solution. I read about SWIFT and fdoc_abstract_document_element, formatted_document, html5_component and nearly died trying to find out how to work with them. When I had a working solution that fully supports html using html5_component I put it in a procedure that should be executed prior loading any other Magik code like sessions. I started the session and... it failed! The exemplar html5_component isn't known to the system at this point and it even isn't able to load its smallworld module because it wasn't known, too.
+So I returned to a Magik solution. I read about SWIFT and fdoc_abstract_document_element, formatted_document, html5_component and nearly died trying to find out how to work with them. When I had a working solution that fully supports HTML using html5_component I put it in a procedure that should be executed prior loading any other Magik code like sessions. I started the session and... it failed! The exemplar html5_component isn't known to the system at this point and it wasn't even able to load its smallworld module because it wasn't known, too.
 
 Yes, I was frustrated.
 
@@ -101,4 +101,4 @@ $form.Add_Shown({ $form.Activate() })
 Write-Output "information read"
 ```
 
-But now we have a useful and convenient solution for informing our users. Because it uses html we're able to include more features than displaying text if we want to.
+But now we have a useful and convenient solution for informing our users. And since it uses HTML, we have the flexibility to enrich the display with formatting, images, or links whenever needed.
