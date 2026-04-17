@@ -19,6 +19,12 @@ title: "Links"
 ## Communities
 - [sw-gis Smallworld Developers](https://groups.io/g/sw-gis)
 
-  Online content for Smallworld GIS developers is very rare and this is only community I know that's still active (well, in some kind :)).
+  Online content for Smallworld GIS developers is very rare and this is only community I know that's still active (well, sort of).
 
   You can connect with people from all over the world and there are really many experienced members.
+
+- [Smallworld GIS Wiki](http://sw-gis.wikidot.com/)
+
+  If I'm correct this wiki was founded by Mark Field and it emerged after the release of Smallworld 5. It provided useful information for the new version.
+  
+  And Mark was the first person who found out (or at least shared his knowledge on) [how to tackle the "JAR locking problem"](http://sw-gis.wikidot.com/swv-builds#toc9), that occured when Magik code was compiled into Java byte code. It was ground-breaking and went viral.
