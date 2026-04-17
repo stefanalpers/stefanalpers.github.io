@@ -4,7 +4,7 @@ permalink: /about/
 title: "About Stefan"
 ---
 
-After studying Geodesy, Stefan was thrown into the deep end working as a support expert for Smallworld GIS at his first job. That gave him good insights into many areas covered by the system.
+After studying Geodesy, Stefan was thrown into the deep end in the year 2000 working as a support expert for Smallworld GIS at his first job . That gave him good insights into many areas covered by the system.
 
 Project management and software development, not only for Smallworld GIS, broadened his horizons into general operational aspects and more.
 
