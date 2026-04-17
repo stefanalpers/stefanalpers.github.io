@@ -184,7 +184,7 @@ If ((Test-Path $CustomerProductsLibsLinkDirectory) -eq $true)
 
 New-Item -Path $CustomerProductsLibsLinkDirectory -ItemType Junction -Value $CustomerProductsLibsTargetDirectory
 Write-Host "END create junction."
-# REMARK FOR READERS
+# REMARK FOR READERS:
 # This only creates a junction for CUSTOMER_PRODUCTS.
 # I haven't yet tried this for products in ADDITIONAL_PRODUCTS.
 #endregion Create junction
