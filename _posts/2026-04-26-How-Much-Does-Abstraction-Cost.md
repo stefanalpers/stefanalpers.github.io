@@ -9,8 +9,6 @@ tags:
     - smallworld
 ---
 
-# value_object Benchmark – How Much Does Abstraction Cost?
-
 In [this post](https://markhing.com/smallworld/beeble-object-a-javascript-like-prototypal-object/) 
 Mark Hing introduced `beeble_object` (I changed it to `value_object`) - a JavaScript-inspired prototypal 
 object for Smallworld GIS Magik. It opens up interesting possibilities: 
