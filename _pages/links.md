@@ -19,7 +19,7 @@ title: "Links"
 ## Communities
 - [sw-gis Smallworld Developers](https://groups.io/g/sw-gis)
 
-  Online content for Smallworld GIS developers is very rare and this is only community I know that's still active (well, sort of).
+  Online content for Smallworld GIS developers is very rare and this is the only community I know that's still active (well, sort of).
 
   You can connect with people from all over the world and there are really many experienced members.
 
