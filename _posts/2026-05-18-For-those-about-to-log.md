@@ -86,11 +86,6 @@ _method my_plugin_framework.config_definition_module_name
 _endmethod
 $
  
-_method my_plugin_framework.gui_definition_module_name
-    >> _self.config_definition_module_name
-_endmethod
-$
- 
 _method my_plugin_framework.config_definition_file_name
     >> "my_config.xml"
 _endmethod
